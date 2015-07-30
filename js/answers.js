@@ -1,0 +1,83 @@
+$(document).ready(function(){
+
+// Replace each string with what the question EVALUATES TO
+    var answers = [ 
+    {
+      question: !true,
+      answer:   false
+    }, {
+      question: !!true,
+      answer:   true
+    }, {
+      question: !!!!0,
+      answer:   false
+    }, {
+      question: false || true,
+      answer:   true
+    }, {
+      question: false && true,
+      answer:   false
+    }, {
+      question: true && 'false',
+      answer:   'false'
+    }, {
+      question: undefined || true,
+      answer:   true
+    }, {
+      question: false && 73,
+      answer:   false
+    }, {
+      question: false || 73,
+      answer:   'answer here'
+    }, {
+      question: 73 || false,
+      answer:   'answer here'
+    }, {
+      question: '73' == 73,
+      answer:   'answer here'
+    }, {
+      question: '73' === 73,
+      answer:   'answer here'
+    }, {
+      question: true !== false,
+      answer:   'answer here'
+    }, {
+      question: (true + true) * 2,
+      answer:   'answer here'
+    }, {
+      question: !![],
+      answer:   'answer here'
+    }, {
+      question: [1, 2 + '2', 3 + 3][1],
+      answer:   'answer here'
+    }, {
+      question: [1, [2, 3, 4, [5, 6, [7]], [8, 9]], 10][1][3][2][0],
+      answer:   'answer here'
+    }, {
+      question: { thisMightBe: null }['thisMightBe'] || false,
+      answer:   'answer here'
+    }, {
+      question: true && (null || 0) || (false && !!(33 !== '33')) || (NaN && '' || undefined),
+      answer:   'answer here'
+    }, {
+      question: !!!(!!(true === true) && !(!(!(true) || (!!true && !!!!true)))),
+      answer:   'answer here'
+    }
+    ];
+
+    answers.forEach(function(answer, i) {
+    var answerId = 'answer-' + i;
+    var $answer = document.getElementById(answerId);
+
+    $answer.innerHTML = i + '. ';
+
+    if (answer.question === answer.answer) {
+      $answer.innerHTML += (answer.answer + ' is correct!');
+      $answer.className += ' correct';
+    } else {
+      $answer.innerHTML += (answer.answer + ' is incorrect!');
+      $answer.className += ' incorrect';
+    }
+    });
+
+  });
