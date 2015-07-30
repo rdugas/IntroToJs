@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-// Replace each string with what the question EVALUATES TO
+    var correctCount = 0;
+    // Replace each string with what the question EVALUATES TO
     var answers = [ 
     {
       question: !true,
@@ -28,19 +29,19 @@ $(document).ready(function(){
       answer:   false
     }, {
       question: false || 73,
-      answer:   'answer here'
+      answer:   73
     }, {
       question: 73 || false,
-      answer:   'answer here'
+      answer:   73
     }, {
       question: '73' == 73,
-      answer:   'answer here'
+      answer:   true
     }, {
       question: '73' === 73,
-      answer:   'answer here'
+      answer:   false
     }, {
       question: true !== false,
-      answer:   'answer here'
+      answer:   true
     }, {
       question: (true + true) * 2,
       answer:   'answer here'
@@ -74,10 +75,13 @@ $(document).ready(function(){
     if (answer.question === answer.answer) {
       $answer.innerHTML += (answer.answer + ' is correct!');
       $answer.className += ' correct';
+      correctCount += 1;
     } else {
       $answer.innerHTML += (answer.answer + ' is incorrect!');
       $answer.className += ' incorrect';
     }
     });
+
+    $('#correctAmount').html("Rob got " + correctCount + " Correct!!!");
 
   });
