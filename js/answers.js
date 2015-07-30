@@ -44,25 +44,25 @@ $(document).ready(function(){
       answer:   true
     }, {
       question: (true + true) * 2,
-      answer:   'answer here'
+      answer:   4
     }, {
       question: !![],
-      answer:   'answer here'
+      answer:   true
     }, {
       question: [1, 2 + '2', 3 + 3][1],
-      answer:   'answer here'
+      answer:   "22"
     }, {
       question: [1, [2, 3, 4, [5, 6, [7]], [8, 9]], 10][1][3][2][0],
-      answer:   'answer here'
+      answer:   7
     }, {
       question: { thisMightBe: null }['thisMightBe'] || false,
-      answer:   'answer here'
+      answer:   false
     }, {
       question: true && (null || 0) || (false && !!(33 !== '33')) || (NaN && '' || undefined),
-      answer:   'answer here'
+      answer:   undefined
     }, {
       question: !!!(!!(true === true) && !(!(!(true) || (!!true && !!!!true)))),
-      answer:   'answer here'
+      answer:   false
     }
     ];
 
@@ -82,6 +82,6 @@ $(document).ready(function(){
     }
     });
 
-    $('#correctAmount').html("Rob got " + correctCount + " Correct!!!");
+    $('#correctAmount').html("Rob got " + correctCount + "(" + (correctCount-1) + ")" + " out of 20(19) Correct!!!");
 
   });
